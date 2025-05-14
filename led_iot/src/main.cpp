@@ -16,7 +16,6 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   delay(10);
-
   pinMode(D2, OUTPUT);
   pinMode(D4, OUTPUT);
   pinMode(D6, OUTPUT);

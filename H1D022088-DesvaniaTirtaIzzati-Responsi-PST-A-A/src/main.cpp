@@ -1,20 +1,20 @@
 #include <Arduino.h>
 
-//declare variabel
 int echoPin = D1;
 int trigPin = D3;
-int ledPin = D0;
+int ledPin1 = D4;
+int ledPin2 = D6;
 
-//declare variabel untuk menampung waktu dan jarak
+// declare variable for time and distance
 long duration;
 int distance;
-
 
 void setup() {
   // put your setup code here, to run once:
   pinMode(echoPin, INPUT);
   pinMode(trigPin, OUTPUT);
-  pinMode(ledPin, OUTPUT);
+  pinMode(ledPin1, OUTPUT);
+  pinMode(ledPin2, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -32,18 +32,12 @@ void loop() {
   //menghitung jarak
   distance = duration * 0.034 / 2;
 
-  //displat serial monitor
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.println(" cm");
-
-  //set LED berdasarkan kondisi
-    if(distance<=10){
-      digitalWrite(ledPin, HIGH);
+  if(distance<=100){
+      digitalWrite(ledPin1, HIGH);
     } else {
-      digitalWrite(ledPin, LOW);
+      digitalWrite(ledPin2, LOW);
     }
 
-    delay(1000);
+  delay(1000);
 }
 
